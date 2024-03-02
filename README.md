@@ -14,5 +14,29 @@ React.js를 사용하기 위해서는 create-react-app이라는 도구를 사용
 create-react-app을 설치하려면 원하는 폴더를 만든 후 명령 프롬프트 또는 터미널에서 폴더 경로로 이동 후 다음 명령어를 실행
 
 `npm install -g create-react-app`\
+<br>
 ![npm install -g create-react-app](https://github.com/98Woonho/react-practice/assets/145889732/8bb94be3-7b01-4b29-9819-03497879a65e)
 
+# React 프로젝트 생성
+React.js 프로젝트를 생성하기 위해서는 명령 프롬프트 또는 터미널에서 원하는 경로로 이동한 후, 다음 명령어를 실행
+
+`create-react-app my-app`\
+<br>
+![create-react-app my-app](https://github.com/98Woonho/react-practice/assets/145889732/574f5936-f6c6-4428-aef7-024b14787d05)
+
+설치가 완료되면 react 모듈과 기본 파일들이 생성된다.\
+<br>
+![file-setting](https://github.com/98Woonho/react-practice/assets/145889732/33abad36-8f3c-4332-a98d-93514d67e820)
+
+# React 실행
+React.js 프로젝트를 생성한 후, 애플리케이션을 실행하려면 명령 프롬프트 또는 터미널에서 다음 명령어를 실행
+
+`cd my-app`\
+`npm start`\
+<br>
+![npm start](https://github.com/98Woonho/react-practice/assets/145889732/1e5bbcad-6527-4f8f-b6d7-818418343392)
+<br>
+터미널에 위 사진처럼 출력된다면 성공적으로 컴파일이 되었다는 뜻이고,\
+'http://localhost:3000'에 접속하면 react default site가 뜨게 된다.\
+<br>
+![react_default_site](https://github.com/98Woonho/react-practice/assets/145889732/3ba8e032-296e-452a-b94b-fa02164c0e9e)
