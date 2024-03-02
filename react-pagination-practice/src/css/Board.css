@@ -1,0 +1,45 @@
+#board {
+    width: 90%;
+    height: 50px;
+    background-color: cornflowerblue;
+    margin: 0 auto;
+    margin-bottom: 2px;
+}
+
+#board > span {
+    float: left;
+    height: 100%;
+    text-align: center;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+#board > span:first-child {
+    width: 10%;
+    background-color: darkcyan;;
+}
+
+#board > span:nth-child(2) {
+    width: 40%;
+    background-color: darkgoldenrod;
+}
+
+#board > span:nth-child(3) {
+    width: 15%;
+    background-color: darkkhaki;
+}
+
+#board > span:nth-child(4) {
+    width: 15%;
+    background-color: darkmagenta;
+}
+
+#board > span:nth-child(5) {
+    width: 10%;
+    background-color: darkorange;
+}
+
+#board > span:nth-child(6) {
+    width: 10%;
+    background-color: darkgrey;
+}

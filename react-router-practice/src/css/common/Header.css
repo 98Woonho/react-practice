@@ -1,0 +1,15 @@
+
+#header{
+    width:1200px;
+    height:100px;
+    background-color: blueviolet;
+    padding:20px;
+    box-sizing: border-box;
+}
+
+#header>button{
+    width:100px;
+    height:30px;
+    margin-right:10px;
+    cursor: pointer;
+}

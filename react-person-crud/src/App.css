@@ -1,0 +1,16 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+#App{
+  width:500px;
+  height:auto;
+  background-color: aqua;
+  margin:0 auto;
+}
+
+#App>h1{
+  background-color:antiquewhite;
+  text-align: center;
+}

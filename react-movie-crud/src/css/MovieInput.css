@@ -1,0 +1,10 @@
+#movie-input {
+    width: 100%;
+    height: 100px;
+    background-color: firebrick;
+}
+
+#movie-input > input, button {
+    display: block;
+    margin: 0 auto;
+}

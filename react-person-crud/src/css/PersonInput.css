@@ -1,0 +1,12 @@
+
+#person-input{
+    width:100%;
+    height:150px;
+    background-color: cadetblue;
+}
+
+#person-input>input,button{
+    display:block;
+    width:80%;
+    margin:5px auto;
+}
