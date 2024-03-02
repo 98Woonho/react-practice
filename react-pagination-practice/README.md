@@ -1,70 +1,19 @@
-# Getting Started with Create React App
+# Class Component 활용 (Pagination)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+터미널에 `cd react-pagination-practice` 명령 실행 후, `npm start` 명령을 실행 하여 react를 실행 하게되면 아래 페이지가 나오게 된다.\
+![main-page](https://github.com/98Woonho/react-practice/assets/145889732/0faaac3e-7f31-486d-b08f-425a463768ce)
 
-## Available Scripts
+각 페이지 버튼을 눌러 이동이 잘 되고, 페이지에 맞는 게시글 리스트가 잘 나오는지 확인해 보도록 하자.
 
-In the project directory, you can run:
+## 1페이지
+![page1](https://github.com/98Woonho/react-practice/assets/145889732/95e2b7e5-dd04-4443-ac61-90a86dbefe31)
 
-### `npm start`
+## 2페이지
+![page2](https://github.com/98Woonho/react-practice/assets/145889732/32a43124-2a58-4518-a7aa-e03db1f6b369)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 3페이지
+![page3](https://github.com/98Woonho/react-practice/assets/145889732/7391e820-9ca6-4dc7-9a68-14dcbbbaf895)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## boardPerPage 변경
+App.js에서 boardPerPage를 3으로 변경하면 그에 맞게 게시글이 페이지당 3개가 나오게 되고, 페이지 버튼도 알맞게 적용된 것을 볼 수 있다.\
+![page4](https://github.com/98Woonho/react-practice/assets/145889732/b71709f9-9a01-4531-b408-035e78f501ae)

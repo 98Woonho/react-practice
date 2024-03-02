@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# Class Component 활용 (Person CRUD)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+터미널에 `cd react-person-crud` 명령 실행 후, `npm start` 명령을 실행 하여 react를 실행 하게되면 아래 페이지가 나오게 된다.\
+![main_page](https://github.com/98Woonho/react-practice/assets/145889732/e3b41a56-dcb8-4578-9a5d-a3ad4fceb82d)
 
-## Available Scripts
+# 추가
+우선 id, 이름, 나이, 키를 입력해서 추가를 해보도록 하자.
 
-In the project directory, you can run:
+1. 데이터 입력\
+   ![data_input](https://github.com/98Woonho/react-practice/assets/145889732/4bcbbd41-fea0-42f7-aa80-66c74a5c235c)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. 데이터 추가 확인\
+  ![data_add](https://github.com/98Woonho/react-practice/assets/145889732/eeb6c0f1-6ef7-4338-b3a5-da330418f000)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# 삭제
+1. 삭제를 원하는 person 정보에 삭제 버튼 클릭 후 확인
+  ![data_delete](https://github.com/98Woonho/react-practice/assets/145889732/14c711d1-dbf9-4b1c-b960-a7abbae59e67)
 
-### `npm test`
+# 수정(나이)
+1. 수정을 원하는 person 데이터의 수정 버튼 클릭
+  ![date-update1](https://github.com/98Woonho/react-practice/assets/145889732/fcb02d8e-f961-4ff7-9f08-73d2025fce88)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+2. 입력 창이 활성화 되고 원하는 값 입력 후 수정 버튼 클릭
+   ![data_update2](https://github.com/98Woonho/react-practice/assets/145889732/7a08d4a2-94b5-40e7-a4db-848673a2dacd)
