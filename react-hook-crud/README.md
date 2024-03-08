@@ -22,7 +22,7 @@ React Hook은 Reack Class Component에서 이용하던 코드를 작성할 필�
    ![add2](https://github.com/98Woonho/react-practice/assets/145889732/991f830e-c8cb-49ec-b716-b74c1986d08f)
 
 ## 수정
-1. 수정 버튼 클릭\
+1. 수정 버튼 클릭
 2. 수정할 데이터 입력\
    ![modify1](https://github.com/98Woonho/react-practice/assets/145889732/1bc2fcf0-04e4-4f86-9a6d-f62bce7efe86)
 
