@@ -1,0 +1,57 @@
+#contents {
+  width: 1200px;
+  height: 200px;
+  background-color: yellow;
+}
+
+#cont1 {
+  float: left;
+  width: 480px;
+  height: 200px;
+  background-color: cadetblue;
+}
+
+#tab {
+  width: 480px;
+  height: 200px;
+  background-color: darkblue;
+}
+
+#tab-btn {
+  width: 480px;
+  height: 40px;
+  background-color: darkcyan;
+}
+
+#tab-contents {
+  width: 480px;
+  height: 160px;
+  background-color: darkgoldenrod;
+}
+
+#tab-contents > div {
+  width: 480px;
+  height: 160px;
+}
+
+#notice {
+  background-color: darkkhaki;
+}
+
+#gallery {
+  background-color: darkgreen;
+}
+
+#cont2 {
+  float: left;
+  width: 360px;
+  height: 200px;
+  background-color: chartreuse;
+}
+
+#cont3 {
+  float: left;
+  width: 360px;
+  height: 200px;
+  background-color: chocolate;
+}
