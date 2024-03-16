@@ -20,7 +20,7 @@ create-react-app을 설치하려면 원하는 폴더를 만든 후 명령 프롬
 # React 프로젝트 생성
 React.js 프로젝트를 생성하기 위해서는 명령 프롬프트 또는 터미널에서 원하는 경로로 이동한 후, 다음 명령어를 실행
 
-`create-react-app my-app`\
+`npx create-react-app my-app`\
 <br>
 ![create-react-app my-app](https://github.com/98Woonho/react-practice/assets/145889732/574f5936-f6c6-4428-aef7-024b14787d05)
 
