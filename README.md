@@ -22,7 +22,8 @@ React.js 프로젝트를 생성하기 위해서는 명령 프롬프트 또는 �
 
 `npx create-react-app my-app`\
 <br>
-![create-react-app my-app](https://github.com/98Woonho/react-practice/assets/145889732/574f5936-f6c6-4428-aef7-024b14787d05)
+![npx create-react-app my-app](https://github.com/98Woonho/react-practice/assets/145889732/6cdad762-6f06-43e2-ac9e-04bf48d2540b)
+
 
 설치가 완료되면 react 모듈과 기본 파일들이 생성된다.\
 <br>
