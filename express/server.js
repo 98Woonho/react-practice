@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 const port = 4000
 const db = require('./config/db.js')
-
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
@@ -38,12 +37,12 @@ app.post('/person',(req,res)=>{
     //const name=req.body.name;
     //const age=req.body.age;
     //const height=req.body.height;
-    const {name,age,height}=req.body
+    const {num,name,age,height}=req.body
     console.log(name)   
     console.log(age)   
     console.log(height)   
     
-    db.query(`insert into person values('${name}',${age},${height})`,(err,data)=>{
+    db.query(`insert into person values(${num},'${name}',${age},${height})`,(err,data)=>{
         if(!err){
             res.send(data)
         }else{
