@@ -47,6 +47,7 @@ class SearchResult extends Component{
 
   render(){
     const {movieList}=this.state
+    console.log(movieList)
     const movieMap=movieList.map(
       (data)=>(<Movie cover_image={data.medium_cover_image} title={data.title}/>)
     )
