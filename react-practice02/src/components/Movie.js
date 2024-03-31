@@ -4,9 +4,9 @@ function Movie(props){
     return(
         <div id='movie'>
             <div id='title'>
-                {props.movieNm}
+                {props.title}
             </div>
-            <img src={props.moviePoster}/>
+            <img src={props.posters}/>
         </div>
     )
 }
