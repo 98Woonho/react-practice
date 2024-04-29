@@ -1,7 +1,7 @@
 import {Component} from 'react';
-import '../css/SearchTab.css'
+import '../css/Header.css'
 
-class SearchTab extends Component{
+class Header extends Component{
   constructor(props){
     super(props)
     this.state={
@@ -10,8 +10,7 @@ class SearchTab extends Component{
   }
 
   searchMovie=()=>{
-    alert('검색!')
-    const {word}=this.state
+    const {word} = this.state
     window.location.href=`/search?ie=utf-8&word=${word}`
     // /search?ie=값&word=값
     // ?뒤에 붙은 정보 (쿼리스트링)
@@ -32,8 +31,9 @@ class SearchTab extends Component{
       <div id='search-tab'>
          <input type='text' placeholder='검색어입력' onChange={this.wordChange}/>
          <button onClick={this.searchMovie}>검색</button>
+         <a href='/dailyBoxOffice'>일별 박스오피스</a>
       </div>
     )
   }
 }
-export default SearchTab;
+export default Header;
