@@ -18,23 +18,34 @@ class Search extends Component {
   }
 
   search = async (name) => {
-    await axios.get(`/person/${name}`)
-    .then(res => {
-      console.log(res)
-    })
-    .catch(err => {
-      if(err.response.status === 404) {
-      }
-    })
-
-    await axios.get(`http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&ServiceKey=FPWJ81L14L7X38342790&title=${name}`)
-      .then(response => {
-        this.setState({
-          movieList: response.data.Data[0].Result
-        })
+    await axios.get(`/search/${name}`)
+      .then(res => {
+        console.log(res)
       })
-      .catch(error => {
-        console.log(error)
+      .catch(err => {
+        console.log(err)
+        if (err.response.status === 404) {
+          axios.get(`http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&ServiceKey=FPWJ81L14L7X38342790&title=${name}`)
+            .then(response => {
+              const searchResult = response.data.Data[0].Result
+              searchResult.forEach(movie => {
+                axios.post('/movie', movie.name)
+                .then(res => {
+                  console.log(res)
+                })
+                .catch(err => {
+                  console.log(err);
+                })
+              })
+              
+              this.setState({
+                movieList: searchResult
+              })
+            })
+            .catch(error => {
+              console.log(error)
+            })
+        }
       })
   }
   render() {
