@@ -14,11 +14,20 @@ class Search extends Component {
 
   componentDidMount() {
     const queryObj = queryString.parse(window.location.search)
-    this.search(queryObj.word)
+    this.search(queryObj.name)
   }
 
-  search = async (searchWord) => {
-    await axios.get(`http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&ServiceKey=FPWJ81L14L7X38342790&title=${searchWord}`)
+  search = async (name) => {
+    await axios.get(`/person/${name}`)
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => {
+      if(err.response.status === 404) {
+      }
+    })
+
+    await axios.get(`http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&ServiceKey=FPWJ81L14L7X38342790&title=${name}`)
       .then(response => {
         this.setState({
           movieList: response.data.Data[0].Result

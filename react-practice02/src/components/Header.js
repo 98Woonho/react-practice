@@ -11,7 +11,7 @@ class Header extends Component{
 
   searchMovie=()=>{
     const {word} = this.state
-    window.location.href=`/search?ie=utf-8&word=${word}`
+    window.location.href=`/search?name=${word}`
     // /search?ie=값&word=값
     // ?뒤에 붙은 정보 (쿼리스트링)
     //http://www.cine21.com/search/?q=듄 (씨네21)
