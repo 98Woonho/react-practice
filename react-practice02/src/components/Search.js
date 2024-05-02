@@ -20,24 +20,25 @@ class Search extends Component {
   search = async (name) => {
     await axios.get(`/search/${name}`)
       .then(res => {
-        console.log(res)
-      })
-      .catch(err => {
-        console.log(err)
-        if (err.response.status === 404) {
+        console.log(res.data.length)
+        if (res.data.length === 0) {
           axios.get(`http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&ServiceKey=FPWJ81L14L7X38342790&title=${name}`)
             .then(response => {
               const searchResult = response.data.Data[0].Result
               searchResult.forEach(movie => {
-                axios.post('/movie', movie.name)
-                .then(res => {
-                  console.log(res)
-                })
-                .catch(err => {
-                  console.log(err);
-                })
+                const originalTitle = movie.title;
+                const newTitle = originalTitle.replace(/!HS/g, '') // !HS 제거
+                  .replace(/!HE/g, '') // !HE 제거
+                const movieObj = {name:newTitle}
+                axios.post('/movie', movieObj)
+                  .then(res => {
+                    // console.log(res)
+                  })
+                  .catch(err => {
+                    console.log(err)
+                  })
               })
-              
+
               this.setState({
                 movieList: searchResult
               })
@@ -46,6 +47,11 @@ class Search extends Component {
               console.log(error)
             })
         }
+
+      }
+      )
+      .catch(err => {
+        console.log(err)
       })
   }
   render() {
