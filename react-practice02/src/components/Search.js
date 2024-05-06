@@ -41,6 +41,9 @@ class Search extends Component {
 
                 // 영화 포스터 url이 여러개로 되어있는 데이터 split
                 movie.posters = movie.posters.split('|')[0];
+                
+                // 영화 줄거리에 있는 따옴표(') -> 공백 으로 변경
+                movie.plots.plot[0].plotText = movie.plots.plot[0].plotText.replace(/'/g, '');
 
                 const movieObj = {
                   title: movie.title,
@@ -55,6 +58,7 @@ class Search extends Component {
                 // 영화 정보 db에 저장
                 axios.post('/movie', movieObj)
                   .then(res => {
+                    console.log(res)
                   })
                   .catch(err => {
                     console.log(err)

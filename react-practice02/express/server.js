@@ -18,6 +18,7 @@ app.get('/search/:title', (req, res) => {
 
 app.post('/movie', (req, res) => {
     const {title, genre, posters, releaseDate, runtime, plot, rating} = req.body
+
     db.query(`insert into movie values('${title}', '${genre}', '${posters}', '${releaseDate}', ${runtime}, '${plot}', '${rating}')`, (err, data) => {
         if (!err) {
             res.send(data)
