@@ -5,10 +5,9 @@ const db = require('./config/db.js')
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
-app.get('/search/:name', (req, res) => {
-    const name = req.params.name
-    console.log(name)
-    db.query(`select * from movie where name like '%${name}%'`, (err, data) => {
+app.get('/search/:title', (req, res) => {
+    const title = req.params.title
+    db.query(`select * from movie where title like '%${title}%'`, (err, data) => {
         if (!err) {
             res.send(data)
         } else {
@@ -18,15 +17,14 @@ app.get('/search/:name', (req, res) => {
 })
 
 app.post('/movie', (req, res) => {
-    // const name = req.body
-    console.log(req.body)
-    // db.query(`insert into movie values('${name}')`, (err, data) => {
-    //     if (!err) {
-    //         res.send(data)
-    //     } else {
-    //         res.send(err)
-    //     }
-    // })
+    const {title, genre, posters, releaseDate, runtime, plot, rating} = req.body
+    db.query(`insert into movie values('${title}', '${genre}', '${posters}', '${releaseDate}', ${runtime}, '${plot}', '${rating}')`, (err, data) => {
+        if (!err) {
+            res.send(data)
+        } else {
+            res.send(err)
+        }
+    })
 })
 
 app.listen(port,()=>{

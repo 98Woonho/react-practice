@@ -1,3 +1,5 @@
+// 영화 검색
+
 import { Component } from 'react';
 import '../css/Search.css'
 import queryString from 'query-string'
@@ -14,25 +16,42 @@ class Search extends Component {
 
   componentDidMount() {
     const queryObj = queryString.parse(window.location.search)
-    this.search(queryObj.name)
+    this.search(queryObj.title)
   }
 
-  search = async (name) => {
-    await axios.get(`/search/${name}`)
+  search = async (title) => {
+    // DB에 검색한 영화 데이터가 있는지 확인하기 위한 get 요청
+    await axios.get(`/search/${title}`)
       .then(res => {
-        console.log(res.data.length)
+        // DB에 검색한 영화 데이터가 없을 때
         if (res.data.length === 0) {
-          axios.get(`http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&ServiceKey=FPWJ81L14L7X38342790&title=${name}`)
-            .then(response => {
-              const searchResult = response.data.Data[0].Result
+          // kmdb open api를 통해 검색어와 관련된 영화 데이터를 가져옴
+          axios.get(`http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&ServiceKey=FPWJ81L14L7X38342790&title=${title}&sort=title,0`)
+            .then(res => {
+              const searchResult = res.data.Data[0].Result
+              console.log(searchResult)
               searchResult.forEach(movie => {
-                const originalTitle = movie.title;
-                const newTitle = originalTitle.replace(/!HS/g, '') // !HS 제거
+                // 영화 제목에 !HS, !HE가 포함되어 있어서 제거
+                movie.title = movie.title.replace(/!HS/g, '') // !HS 제거
                   .replace(/!HE/g, '') // !HE 제거
-                const movieObj = {name:newTitle}
+                  .trim() // 공백 제거
+
+                // 영화 포스터 url이 여러개로 되어있는 데이터 split
+                movie.posters = movie.posters.split('|')[0];
+
+                const movieObj = {
+                  title: movie.title,
+                  genre: movie.genre,
+                  posters: movie.posters,
+                  releaseDate: movie.repRlsDate,
+                  runtime: movie.runtime,
+                  plot: movie.plots.plot[0].plotText,
+                  rating: movie.rating
+                }
+
+                // 영화 정보 db에 저장
                 axios.post('/movie', movieObj)
                   .then(res => {
-                    // console.log(res)
                   })
                   .catch(err => {
                     console.log(err)
@@ -46,8 +65,18 @@ class Search extends Component {
             .catch(error => {
               console.log(error)
             })
+        } else {
+          // DB에 영화 데이터가 있을 때, get 요청으로 영화 데이터를 가져옴
+          axios.get(`/search/${title}`)
+            .then(res => {
+              this.setState({
+                movieList: res.data
+              })
+            })
+            .catch(err => {
+              console.log(err)
+            })
         }
-
       }
       )
       .catch(err => {
@@ -56,22 +85,12 @@ class Search extends Component {
   }
   render() {
     const { movieList } = this.state
-    movieList.forEach(movie => {
-      // 영화 제목에 !HS, !HE가 포함되어 있어서 제거
-      const originalTitle = movie.title;
-      movie.title = originalTitle.replace(/!HS/g, '') // !HS 제거
-        .replace(/!HE/g, '') // !HE 제거
-
-      // 영화 포스터 url 가져오기
-      const urls = movie.posters.split('|');
-      movie.posters = urls[0];
-    });
     const movieMap = movieList.map(
       (data) => (<Movie title={data.title} posters={data.posters} />)
     )
 
     return (
-      <div id='search'>
+      <div id='movieList'>
         {movieMap}
       </div>
     )

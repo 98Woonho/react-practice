@@ -1,3 +1,5 @@
+// 영화 목록
+
 import '../css/Movie.css';
 
 function Movie(props){

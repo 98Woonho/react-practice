@@ -1,3 +1,5 @@
+// 홈페이지
+
 import {Component} from 'react';
 import '../css/Home.css'
 

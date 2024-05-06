@@ -1,3 +1,5 @@
+// 헤더
+
 import {Component} from 'react';
 import '../css/Header.css'
 
@@ -11,16 +13,10 @@ class Header extends Component{
 
   searchMovie=()=>{
     const {word} = this.state
-    window.location.href=`/search?name=${word}`
-    // /search?ie=값&word=값
-    // ?뒤에 붙은 정보 (쿼리스트링)
-    //http://www.cine21.com/search/?q=듄 (씨네21)
-    //https://search.daum.net/search?sugo=&sq=&o=&q=셔츠 (다음)
-    //https://browse.gmarket.co.kr/search?keyword=셔츠  (G마켓)
+    window.location.href=`/search?title=${word}`
   }
 
   wordChange=(e)=>{
-    console.log(e.target.value)
     this.setState({
       word:e.target.value
     })
