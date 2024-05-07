@@ -26,12 +26,11 @@ class Search extends Component {
         // DB에 검색한 영화 데이터가 없을 때
         if (res.data.length === 0) {
           // kmdb open api를 통해 검색어와 관련된 영화 데이터를 가져옴
-          axios.get(`http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&ServiceKey=FPWJ81L14L7X38342790&title=${title}&sort=title,0`)
+          axios.get(`http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&ServiceKey=FPWJ81L14L7X38342790&sort=title,0`)
             .then(res => {
-              // kmdb open api에서 가져온 영화 데이터에서 관련 없는 영화 데이터는 삭제
+              console.log(res)
+              // kmdb open api에서 가져온 영화 데이터에서 관련 없는 영화 데이터 and TV용 데이터는 삭제
               const searchResult = res.data.Data[0].Result.filter(movie => movie.title.toLowerCase().includes(title.toLowerCase()) && movie.use !== 'TV용');
-
-              console.log(searchResult)
 
               searchResult.forEach(movie => {
                 // 영화 제목에 !HS, !HE가 포함되어 있어서 제거
@@ -58,7 +57,6 @@ class Search extends Component {
                 // 영화 정보 db에 저장
                 axios.post('/movie', movieObj)
                   .then(res => {
-                    console.log(res)
                   })
                   .catch(err => {
                     console.log(err)

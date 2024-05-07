@@ -8,7 +8,9 @@ function Movie(props){
             <div id='title'>
                 {props.title}
             </div>
-            <img src={props.posters}/>
+            <a href='/'>
+                <img src={props.posters}/>
+            </a>
         </div>
     )
 }
