@@ -29,8 +29,9 @@ class Search extends Component {
           axios.get(`http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&ServiceKey=FPWJ81L14L7X38342790&sort=title,0`)
             .then(res => {
               console.log(res)
-              // kmdb open api에서 가져온 영화 데이터에서 관련 없는 영화 데이터 and TV용 데이터는 삭제
+              // kmdb open api에서 가져온 영화 데이터 중 관련 없는 영화 데이터, TV용 데이터, 정보가 부족한 데이터는 삭제
               const searchResult = res.data.Data[0].Result.filter(movie => movie.title.toLowerCase().includes(title.toLowerCase()) && movie.use !== 'TV용');
+              // 2024-05-07 : 일단 대표 개봉일이 없는 데이터는 제외시켜서 전체 데이터를 db에 저장해보도록 할 생각임.
 
               searchResult.forEach(movie => {
                 // 영화 제목에 !HS, !HE가 포함되어 있어서 제거
